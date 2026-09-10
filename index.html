@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jason Yung Consulting</title>
+  <meta name="description" content="AI governance and emerging technology advisory for defence, security, and government organizations." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #111;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a { color: inherit; }
+
+    /* ── Section label ── */
+    .label {
+      font-size: 0.75em;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── Header ── */
+    header { padding: 64px 0 40px; }
+
+    header h1 {
+      font-size: 2.2em;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    header .tagline {
+      color: #555;
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    nav a {
+      font-size: 0.88em;
+      color: #888;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    nav a:hover { color: #111; }
+
+    /* ── About ── */
+    .about {
+      padding-top: 24px;
+      padding-bottom: 64px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* SWAP: replace the .photo-placeholder div below with
+         <img class="photo" src="photo.jpg" alt="Jason Yung">
+       and drop photo.jpg in this same folder. */
+    .photo, .photo-placeholder {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      display: block;
+      object-fit: cover;
+      border: 1.5px solid #ddd;
+      background: #f7f7f7;
+    }
+
+    .photo-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75em;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #aaa;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 1.25em;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .about p {
+      color: #555;
+      font-size: 0.95em;
+      margin-bottom: 12px;
+    }
+
+    .about p:last-child { margin-bottom: 0; }
+
+    /* ── Offerings ── */
+    .offerings { padding-bottom: 64px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      border: 1.5px solid #ddd;
+      padding: 28px 24px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .card:hover {
+      border-color: #111;
+      background: #f7f7f7;
+    }
+
+    .card .card-label {
+      font-size: 0.75em;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      font-size: 1.1em;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 0.9em;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* ── Testimonials ── */
+    .testimonials { padding-bottom: 64px; }
+
+    figure {
+      border-left: 1.5px solid #ddd;
+      padding-left: 20px;
+      margin-bottom: 28px;
+    }
+
+    figure:last-child { margin-bottom: 0; }
+
+    blockquote {
+      font-size: 1.05em;
+      color: #111;
+      margin-bottom: 8px;
+    }
+
+    figcaption {
+      font-size: 0.85em;
+      color: #888;
+    }
+
+    /* ── Contact ── */
+    .contact { padding-bottom: 40px; }
+
+    .contact p {
+      color: #555;
+      font-size: 0.95em;
+      margin-bottom: 12px;
+    }
+
+    .contact a.email {
+      font-size: 1.1em;
+      color: #111;
+      text-decoration: none;
+      border-bottom: 1.5px solid #ddd;
+      transition: border-color 0.15s;
+    }
+
+    .contact a.email:hover { border-color: #111; }
+
+    footer {
+      border-top: 1.5px solid #eee;
+      padding: 24px 0 64px;
+      font-size: 0.85em;
+      color: #888;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 640px) {
+      header { padding-top: 48px; }
+      .about { grid-template-columns: 1fr; gap: 24px; }
+      .photo, .photo-placeholder { max-width: 200px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="wrap">
+    <h1>Jason Yung Consulting</h1>
+    <p class="tagline">AI governance and emerging technology strategy for defence, security, and government.</p>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="about wrap" id="about">
+      <!-- SWAP: replace this div with <img class="photo" src="photo.jpg" alt="Jason Yung"> -->
+      <div class="photo-placeholder">Photo</div>
+      <div>
+        <h2>About</h2>
+        <p>I work at the intersection of artificial intelligence and national security, helping government and defence organizations put real governance around AI systems &mdash; so they can adopt the technology at scale without absorbing risk they can't see or manage.</p>
+        <p>Most recently I was Senior Advisor and AI Governance Lead at Canada's Defence AI Centre, serving as lead governance architect for the framework supporting the DND/CAF AI Strategy. Before that I spent three years at Global Affairs Canada as Senior Advisor for AI and Emerging Technologies, leading departmental engagement on AUKUS Pillar 2 and advising senior officials on frontier AI, semiconductor supply chains, and global AI governance. Earlier postings took me to Kandahar as a political officer, to embassy threat assessment across Sub-Saharan Africa, and to the Afghanistan Task Force.</p>
+        <p>I'm not only a policy person. I hold an M.P.S. from NYU's Interactive Telecommunications Program, taught creative coding at American University, spent years building interactive installations as a freelance technologist, and in 2025 built and trained a transformer language model from scratch. Hands-on with the technology, fluent in the institutions &mdash; that combination is what I bring to a governance problem.</p>
+      </div>
+    </section>
+
+    <section class="offerings wrap" id="services">
+      <p class="label">What I Do</p>
+      <div class="grid">
+
+        <div class="card">
+          <p class="card-label">Governance</p>
+          <h3>AI Governance Frameworks</h3>
+          <p>Design and stand up the structures that let an organization adopt AI at scale: risk tiering, assurance techniques, review gates, and the enterprise readiness review and stakeholder pre-alignment that keep a framework from stalling on arrival.</p>
+        </div>
+
+        <div class="card">
+          <p class="card-label">Analysis</p>
+          <h3>Strategic &amp; Technology Analysis</h3>
+          <p>Decision-grade analysis on frontier AI, military applications and autonomy, semiconductor supply chains, and technology export controls &mdash; written for senior leaders who need to act on it, not just read it.</p>
+        </div>
+
+        <div class="card">
+          <p class="card-label">Advisory</p>
+          <h3>Briefings &amp; Advisory</h3>
+          <p>Executive briefings, workshops, and ongoing advisory that translate between technical reality and institutional decision-making, for teams that need to get fluent fast.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="testimonials wrap" id="testimonials">
+      <p class="label">Testimonials</p>
+
+      <figure>
+        <blockquote>&ldquo;[Testimonial quote &mdash; replace with a real client quote before publishing.]&rdquo;</blockquote>
+        <figcaption>&mdash; [Client Name], [Title, Company]</figcaption>
+      </figure>
+
+      <figure>
+        <blockquote>&ldquo;[Testimonial quote &mdash; replace with a real client quote before publishing.]&rdquo;</blockquote>
+        <figcaption>&mdash; [Client Name], [Title, Company]</figcaption>
+      </figure>
+
+      <figure>
+        <blockquote>&ldquo;[Testimonial quote &mdash; replace with a real client quote before publishing.]&rdquo;</blockquote>
+        <figcaption>&mdash; [Client Name], [Title, Company]</figcaption>
+      </figure>
+
+    </section>
+
+    <section class="contact wrap" id="contact">
+      <p class="label">Contact</p>
+      <p>Send a short note about what you're working on and where it's stuck, and I'll get back to you.</p>
+      <p><a class="email" href="mailto:jason.yung@gmail.com">jason.yung@gmail.com</a></p>
+    </section>
+
+  </main>
+
+  <footer class="wrap">
+    &copy; 2026 Jason Yung Consulting
+  </footer>
+
+</body>
+</html>
