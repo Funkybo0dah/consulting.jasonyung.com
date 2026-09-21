@@ -3,91 +3,140 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jason Yung Consulting</title>
-  <meta name="description" content="AI governance and emerging technology advisory for defence, security, and government organizations." />
+  <title>Jason Yung — AI Enablement for Law Firms</title>
+  <meta name="description" content="I help law firms adopt AI practically and responsibly — saving time on research, drafting, and intake without compromising professional standards." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      color: #111;
-      background: #fff;
+      font-size: 18px;
+      color: #E8E4DC;
+      background: #0A1628;
       line-height: 1.6;
     }
 
     .wrap {
-      max-width: 720px;
+      max-width: 960px;
       margin: 0 auto;
-      padding-left: 24px;
-      padding-right: 24px;
+      padding-left: 48px;
+      padding-right: 48px;
     }
 
     a { color: inherit; }
 
     /* ── Section label ── */
     .label {
-      font-size: 0.75em;
+      font-size: 1.1em;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #888;
+      letter-spacing: 0.04em;
+      color: #F0C000;
       margin-bottom: 20px;
     }
 
     /* ── Header ── */
-    header { padding: 64px 0 40px; }
+    header {
+      background: #F0C000;
+      padding: 64px 0 40px;
+    }
 
     header h1 {
-      font-size: 2.2em;
+      font-size: 3.12em;
       font-weight: 700;
-      margin-bottom: 6px;
-      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+      color: #0A1628;
     }
 
     header .tagline {
-      color: #555;
-      font-size: 1em;
-      margin-bottom: 20px;
+      color: #0A1628;
+      font-size: 1.05em;
+      margin-bottom: 24px;
+      max-width: 580px;
+      opacity: 0.75;
     }
 
     nav ul {
       list-style: none;
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 24px;
     }
 
     nav a {
-      font-size: 0.88em;
-      color: #888;
+      font-size: 0.85em;
+      color: #7A7670;
       text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       transition: color 0.15s;
     }
 
-    nav a:hover { color: #111; }
+    nav a:hover { color: #F0C000; }
+
+    /* ── Problem / Proposition ── */
+    .problem, .proposition {
+      padding-top: 48px;
+      padding-bottom: 0;
+    }
+
+    .problem h2, .proposition h2 {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #F0C000;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .problem p, .proposition p {
+      color: #B0AAA0;
+      font-size: 0.95em;
+      margin-bottom: 14px;
+    }
+
+    .problem p:last-child, .proposition p:last-child { margin-bottom: 0; }
+
+    .problem ul {
+      color: #B0AAA0;
+      font-size: 0.95em;
+      margin: 0 0 14px 20px;
+      line-height: 1.7;
+    }
+
+    .problem ul li { margin-bottom: 8px; }
 
     /* ── About ── */
     .about {
-      padding-top: 24px;
+      padding-top: 48px;
       padding-bottom: 64px;
       display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 32px;
+      grid-template-columns: 360px 1fr;
+      gap: 48px;
       align-items: start;
     }
 
-    /* SWAP: replace the .photo-placeholder div below with
-         <img class="photo" src="photo.jpg" alt="Jason Yung">
-       and drop photo.jpg in this same folder. */
-    .photo, .photo-placeholder {
+    .photo-wrap {
       width: 100%;
       aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #111E30;
+    }
+
+    .photo {
+      width: 100%;
+      height: 100%;
       display: block;
       object-fit: cover;
-      border: 1.5px solid #ddd;
-      background: #f7f7f7;
+      object-position: center 15%;
+      transform: scale(1.5);
+      transform-origin: 50% 10%;
     }
 
     .photo-placeholder {
+      width: 100%;
+      aspect-ratio: 1 / 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -96,18 +145,22 @@
       letter-spacing: 0.1em;
       color: #aaa;
       text-align: center;
+      background: #111E30;
     }
 
     .about h2 {
-      font-size: 1.25em;
+      font-size: 1.1em;
       font-weight: 600;
-      margin-bottom: 12px;
+      color: #F0C000;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
     }
 
     .about p {
-      color: #555;
+      color: #B0AAA0;
       font-size: 0.95em;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .about p:last-child { margin-bottom: 0; }
@@ -122,41 +175,86 @@
     }
 
     .card {
-      border: 1.5px solid #ddd;
+      border: 1px solid #1E2E45;
+      border-top: 2px solid #F0C000;
       padding: 28px 24px;
       transition: border-color 0.15s, background 0.15s;
     }
 
     .card:hover {
-      border-color: #111;
-      background: #f7f7f7;
+      background: #111E30;
     }
 
     .card .card-label {
-      font-size: 0.75em;
+      font-size: 0.72em;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #888;
-      margin-bottom: 8px;
+      letter-spacing: 0.12em;
+      color: #F0C000;
+      margin-bottom: 10px;
     }
 
     .card h3 {
-      font-size: 1.1em;
+      font-size: 1.05em;
       font-weight: 600;
-      margin-bottom: 8px;
+      color: #E8E4DC;
+      margin-bottom: 10px;
     }
 
     .card p {
-      font-size: 0.9em;
-      color: #555;
-      line-height: 1.5;
+      font-size: 0.88em;
+      color: #8A8480;
+      line-height: 1.6;
     }
+
+    /* ── Process list ── */
+    .process-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .process-list li {
+      padding: 24px 0;
+      border-top: 1px solid #1E2E45;
+      display: flex;
+      gap: 32px;
+      align-items: baseline;
+      counter-increment: process;
+    }
+
+    .process-list li:last-child { border-bottom: 1px solid #1E2E45; }
+
+    .process-list li::before {
+      content: counter(process, decimal-leading-zero);
+      font-size: 0.7em;
+      color: #F0C000;
+      letter-spacing: 0.08em;
+      min-width: 28px;
+      flex-shrink: 0;
+      padding-top: 3px;
+    }
+
+    .process-list h3 {
+      font-size: 1em;
+      font-weight: 600;
+      color: #E8E4DC;
+      margin-bottom: 6px;
+    }
+
+    .process-list p {
+      font-size: 0.88em;
+      color: #8A8480;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .process-list li > div { flex: 1; }
 
     /* ── Testimonials ── */
     .testimonials { padding-bottom: 64px; }
 
     figure {
-      border-left: 1.5px solid #ddd;
+      border-left: 2px solid #F0C000;
       padding-left: 20px;
       margin-bottom: 28px;
     }
@@ -164,46 +262,59 @@
     figure:last-child { margin-bottom: 0; }
 
     blockquote {
-      font-size: 1.05em;
-      color: #111;
+      font-size: 1em;
+      color: #C8C4BC;
       margin-bottom: 8px;
+      font-style: italic;
     }
 
     figcaption {
-      font-size: 0.85em;
-      color: #888;
+      font-size: 0.82em;
+      color: #7A7670;
+    }
+
+    /* ── Clients ── */
+    .clients {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+
+    .clients p {
+      color: #B0AAA0;
+      font-size: 0.95em;
     }
 
     /* ── Contact ── */
     .contact { padding-bottom: 40px; }
 
     .contact p {
-      color: #555;
+      color: #8A8480;
       font-size: 0.95em;
       margin-bottom: 12px;
     }
 
     .contact a.email {
       font-size: 1.1em;
-      color: #111;
+      color: #F0C000;
       text-decoration: none;
-      border-bottom: 1.5px solid #ddd;
+      border-bottom: 1px solid #2A3A50;
       transition: border-color 0.15s;
     }
 
-    .contact a.email:hover { border-color: #111; }
+    .contact a.email:hover { border-color: #F0C000; }
 
     footer {
-      border-top: 1.5px solid #eee;
+      border-top: 1px solid #F0C000;
       padding: 24px 0 64px;
-      font-size: 0.85em;
-      color: #888;
+      font-size: 0.82em;
+      color: #4A4840;
     }
 
     /* ── Mobile ── */
     @media (max-width: 640px) {
       header { padding-top: 48px; }
-      .about { grid-template-columns: 1fr; gap: 24px; }
+      .problem, .proposition { padding-top: 32px; }
+      .about { grid-template-columns: 1fr; gap: 24px; padding-top: 32px; }
       .photo, .photo-placeholder { max-width: 200px; }
       .grid { grid-template-columns: 1fr; }
     }
@@ -213,78 +324,67 @@
 
   <header class="wrap">
     <h1>Jason Yung Consulting</h1>
-    <p class="tagline">AI governance and emerging technology strategy for defence, security, and government.</p>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <p class="tagline">AI enablement specialist focusing on helping law firms adopt AI.</p>
   </header>
 
   <main>
 
+    <section class="problem wrap">
+      <h2>The Problem</h2>
+      <p>Law firms are under pressure to adopt AI. Clients now expect faster turnaround. Opposing counsel is using AI to prepare.</p>
+      <p>A firm must adopt or create tools that can:</p>
+      <ul>
+        <li>Cut down on time manually reviewing confidential client documents — identify key issues of a case and surface the applicable documents</li>
+        <li>Query external case law to find relevant precedent</li>
+        <li>Automate the client intake process and prepare response documents</li>
+      </ul>
+      <p>Added to all this, a law firm must be sure that any AI system it uses doesn't break solicitor-client privilege and does not surface confidential information in an LLM system that would compromise the firm's reputation.</p>
+      <p>Reputational risks are real. So are the time-saving benefits. The question is which tools are worth your time, how to use them without creating professional liability, and how to get your team actually using them.</p>
+    </section>
+
+    <section class="proposition wrap" id="proposition">
+      <h2>My Proposition</h2>
+      <p>That's the problem I solve. I come in, assess your practice, identify the highest-value opportunities — research, drafting, intake, document review — and help you build workflows your team will actually keep using.</p>
+      <p>And I produce the AI governance documentation your firm needs when clients, regulators, or your law society come asking — built around solicitor-client privilege from the ground up.</p>
+    </section>
+
     <section class="about wrap" id="about">
-      <!-- SWAP: replace this div with <img class="photo" src="photo.jpg" alt="Jason Yung"> -->
-      <div class="photo-placeholder">Photo</div>
+      <div class="photo-wrap">
+        <img class="photo" src="photo.png" alt="Jason Yung">
+      </div>
       <div>
-        <h2>About</h2>
-        <p>I work at the intersection of artificial intelligence and national security, helping government and defence organizations put real governance around AI systems &mdash; so they can adopt the technology at scale without absorbing risk they can't see or manage.</p>
-        <p>Most recently I was Senior Advisor and AI Governance Lead at Canada's Defence AI Centre, serving as lead governance architect for the framework supporting the DND/CAF AI Strategy. Before that I spent three years at Global Affairs Canada as Senior Advisor for AI and Emerging Technologies, leading departmental engagement on AUKUS Pillar 2 and advising senior officials on frontier AI, semiconductor supply chains, and global AI governance. Earlier postings took me to Kandahar as a political officer, to embassy threat assessment across Sub-Saharan Africa, and to the Afghanistan Task Force.</p>
-        <p>I'm not only a policy person. I hold an M.P.S. from NYU's Interactive Telecommunications Program, taught creative coding at American University, spent years building interactive installations as a freelance technologist, and in 2025 built and trained a transformer language model from scratch. Hands-on with the technology, fluent in the institutions &mdash; that combination is what I bring to a governance problem.</p>
+        <h2>About Me</h2>
+        <p>I worked in AI when governance wasn't optional. As AI Governance Lead at Canada's Defence AI Centre, I built frameworks for deploying AI in environments where the stakes for getting it wrong were high. I understand how to implement AI responsibly in regulated settings &mdash; not just how to demo the latest tool.</p>
+        <p>Hands-on with the technology, fluent in the governance questions your law society is already asking &mdash; that's what I bring to a law firm AI problem.</p>
       </div>
     </section>
 
     <section class="offerings wrap" id="services">
-      <p class="label">What I Do</p>
-      <div class="grid">
-
-        <div class="card">
-          <p class="card-label">Governance</p>
-          <h3>AI Governance Frameworks</h3>
-          <p>Design and stand up the structures that let an organization adopt AI at scale: risk tiering, assurance techniques, review gates, and the enterprise readiness review and stakeholder pre-alignment that keep a framework from stalling on arrival.</p>
-        </div>
-
-        <div class="card">
-          <p class="card-label">Analysis</p>
-          <h3>Strategic &amp; Technology Analysis</h3>
-          <p>Decision-grade analysis on frontier AI, military applications and autonomy, semiconductor supply chains, and technology export controls &mdash; written for senior leaders who need to act on it, not just read it.</p>
-        </div>
-
-        <div class="card">
-          <p class="card-label">Advisory</p>
-          <h3>Briefings &amp; Advisory</h3>
-          <p>Executive briefings, workshops, and ongoing advisory that translate between technical reality and institutional decision-making, for teams that need to get fluent fast.</p>
-        </div>
-
-      </div>
+      <p class="label">The Process</p>
+      <ol class="process-list">
+        <li><div>
+          <h3>Consultation Call</h3>
+          <p>A focused conversation about your practice — your size, practice areas, current workflow pain points, and where AI could realistically save your team time. No pitch, no obligation.</p>
+        </div></li>
+        <li><div>
+          <h3>AI Tooling Assessment</h3>
+          <p>A one-shot engagement that audits your current workflows and maps them against the AI tools that are actually worth using in a legal context — research, drafting, intake, document review. You get a clear prioritized list of what to adopt and how, with professional responsibility considerations built in.</p>
+        </div></li>
+        <li><div>
+          <h3>Expanded Engagement</h3>
+          <p>Hands-on implementation, staff training, and ongoing advisory — building the workflows and habits that turn AI from a curiosity into a competitive advantage for your firm.</p>
+        </div></li>
+      </ol>
     </section>
 
-    <section class="testimonials wrap" id="testimonials">
-      <p class="label">Testimonials</p>
-
-      <figure>
-        <blockquote>&ldquo;[Testimonial quote &mdash; replace with a real client quote before publishing.]&rdquo;</blockquote>
-        <figcaption>&mdash; [Client Name], [Title, Company]</figcaption>
-      </figure>
-
-      <figure>
-        <blockquote>&ldquo;[Testimonial quote &mdash; replace with a real client quote before publishing.]&rdquo;</blockquote>
-        <figcaption>&mdash; [Client Name], [Title, Company]</figcaption>
-      </figure>
-
-      <figure>
-        <blockquote>&ldquo;[Testimonial quote &mdash; replace with a real client quote before publishing.]&rdquo;</blockquote>
-        <figcaption>&mdash; [Client Name], [Title, Company]</figcaption>
-      </figure>
-
+    <section class="clients wrap" id="clients">
+      <p class="label">Clients</p>
+      <p>Currently engaged with a Toronto law firm on AI workflow implementation.</p>
     </section>
 
     <section class="contact wrap" id="contact">
       <p class="label">Contact</p>
-      <p>Send a short note about what you're working on and where it's stuck, and I'll get back to you.</p>
+      <p>If you're a managing partner, practice group lead, or operations director thinking about AI — or already experimenting with it and not sure what's worth keeping — send a short note and I'll get back to you within one business day.</p>
       <p><a class="email" href="mailto:jason.yung@gmail.com">jason.yung@gmail.com</a></p>
     </section>
 
