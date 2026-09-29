@@ -4,7 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jason Yung — AI Enablement for Law Firms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <meta name="description" content="I help law firms adopt AI practically and responsibly — saving time on research, drafting, and intake without compromising professional standards." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -39,14 +45,44 @@
     header {
       background: #F0C000;
       padding: 64px 0 40px;
+      position: relative;
+      text-align: center;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.85;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 200px 200px;
+    }
+
+    header.wrap {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    header h1 .initial {
+      font-size: 1.1em;
+      line-height: 0;
+      vertical-align: baseline;
     }
 
     header h1 {
-      font-size: 3.12em;
+      text-shadow:
+        -2px -2px 0px rgba(255, 245, 140, 1),
+        3px 3px 5px rgba(60, 40, 0, 0.55);
+      letter-spacing: -0.01em;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 4.2em;
       font-weight: 700;
-      margin-bottom: 10px;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
       color: #0A1628;
+      margin-bottom: 10px;
     }
 
     header .tagline {
@@ -98,14 +134,14 @@
 
     .problem p:last-child, .proposition p:last-child { margin-bottom: 0; }
 
-    .problem ul {
+    .problem ul, .proposition ul {
       color: #B0AAA0;
       font-size: 0.95em;
       margin: 0 0 14px 20px;
       line-height: 1.7;
     }
 
-    .problem ul li { margin-bottom: 8px; }
+    .problem ul li, .proposition ul li { margin-bottom: 8px; }
 
     /* ── About ── */
     .about {
@@ -165,6 +201,16 @@
 
     .about p:last-child { margin-bottom: 0; }
 
+    .about ul {
+      color: #B0AAA0;
+      font-size: 0.95em;
+      margin: 0 0 0 20px;
+      line-height: 1.7;
+    }
+
+    .about ul li { margin-bottom: 14px; }
+    .about ul li:last-child { margin-bottom: 0; }
+
     /* ── Offerings ── */
     .offerings { padding-bottom: 64px; }
 
@@ -211,27 +257,55 @@
       list-style: none;
       padding: 0;
       margin: 0;
+      position: relative;
+      counter-reset: process;
+    }
+
+    /* vertical connector line */
+    .process-list::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 44px;
+      bottom: 44px;
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(240,192,0,0.7), rgba(240,192,0,0.08));
     }
 
     .process-list li {
-      padding: 24px 0;
-      border-top: 1px solid #1E2E45;
-      display: flex;
-      gap: 32px;
-      align-items: baseline;
+      padding: 32px 0 32px 52px;
+      position: relative;
       counter-increment: process;
+      overflow: hidden;
     }
 
-    .process-list li:last-child { border-bottom: 1px solid #1E2E45; }
-
+    /* gold dot on the timeline */
     .process-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 40px;
+      width: 11px;
+      height: 11px;
+      background: #F0C000;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(240,192,0,0.15);
+    }
+
+    /* large ghosted step number */
+    .process-list li::after {
       content: counter(process, decimal-leading-zero);
-      font-size: 0.7em;
-      color: #F0C000;
-      letter-spacing: 0.08em;
-      min-width: 28px;
-      flex-shrink: 0;
-      padding-top: 3px;
+      position: absolute;
+      right: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 7em;
+      font-weight: 700;
+      color: rgba(240,192,0,0.06);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      pointer-events: none;
+      user-select: none;
     }
 
     .process-list h3 {
@@ -245,10 +319,38 @@
       font-size: 0.88em;
       color: #8A8480;
       line-height: 1.6;
-      margin: 0;
+      margin: 0 0 10px;
     }
 
-    .process-list li > div { flex: 1; }
+    .process-list p:last-child { margin-bottom: 0; }
+
+    /* ── Scroll dissolve ── */
+    header.fade-in {
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    header.fade-in.visible {
+      opacity: 1;
+    }
+
+    .fade-in .char {
+      opacity: 0;
+      transition: opacity 0.22s ease var(--d, 0s);
+    }
+
+    .fade-in.visible .char {
+      opacity: 1;
+    }
+
+    .fade-in img {
+      opacity: 0;
+      transition: opacity 0.9s ease 0.1s;
+    }
+
+    .fade-in.visible img {
+      opacity: 1;
+    }
 
     /* ── Testimonials ── */
     .testimonials { padding-bottom: 64px; }
@@ -279,7 +381,7 @@
       padding-bottom: 48px;
     }
 
-    .clients p {
+    .clients p:not(.label) {
       color: #B0AAA0;
       font-size: 0.95em;
     }
@@ -287,14 +389,26 @@
     /* ── Contact ── */
     .contact { padding-bottom: 40px; }
 
-    .contact p {
+    .contact p:not(.label) {
       color: #8A8480;
       font-size: 0.95em;
       margin-bottom: 12px;
     }
 
+    .contact a.cta-link {
+      display: inline-block;
+      color: #0A1628;
+      background: #F0C000;
+      padding: 12px 24px;
+      font-weight: 600;
+      font-size: 0.95em;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .contact a.cta-link:hover { opacity: 0.85; }
+
     .contact a.email {
-      font-size: 1.1em;
       color: #F0C000;
       text-decoration: none;
       border-bottom: 1px solid #2A3A50;
@@ -313,6 +427,7 @@
     /* ── Mobile ── */
     @media (max-width: 640px) {
       header { padding-top: 48px; }
+      header h1 { font-size: 1.65em; }
       .problem, .proposition { padding-top: 32px; }
       .about { grid-template-columns: 1fr; gap: 24px; padding-top: 32px; }
       .photo, .photo-placeholder { max-width: 200px; }
@@ -322,70 +437,82 @@
 </head>
 <body>
 
-  <header class="wrap">
-    <h1>Jason Yung Consulting</h1>
-    <p class="tagline">AI enablement specialist focusing on helping law firms adopt AI.</p>
+  <header class="wrap fade-in">
+    <h1><span class="initial">J</span>ason <span class="initial">Y</span>ung <span class="initial">C</span>onsulting</h1>
+    <p class="tagline">AI enablement for Ontario's small law firms.</p>
   </header>
 
   <main>
 
-    <section class="problem wrap">
+    <section class="problem wrap fade-in">
       <h2>The Problem</h2>
-      <p>Law firms are under pressure to adopt AI. Clients now expect faster turnaround. Opposing counsel is using AI to prepare.</p>
-      <p>A firm must adopt or create tools that can:</p>
+      <p>Small law firms are the backbone of Ontario's legal market. Sole practitioners make up 17–20% of practicing lawyers; add firms of 2–10 lawyers and you're at roughly 50–60% of private practice.</p>
+      <p>These firms face the same pressure from AI as Bay Street. Clients expect faster turnaround. Opposing counsel is already using AI to prepare.</p>
+      <p>Legal AI vendors like Harvey are built for large firms and big budgets. Small firms are largely on their own. Without an in-house IT department to explain, in simple terms, what their AI options actually are.</p>
+      <p>Worse, faced with the pressures of a solo or small practice time pinch, lawyers might even take the extraordinary step of entering case data into an LLM without knowing what happens to that data. Or they may use an LLM to generate text without knowing for sure if there are any hallucinations.</p>
+      <p>Reputational risks are real. So are the time-saving benefits. The question is which tools are worth your time, how to use them with a well-structured AI governance policy that guards against professional liability, and allows you to freely use AI tools.</p>
+    </section>
+
+    <section class="proposition wrap fade-in" id="proposition">
+      <h2>My Proposition — AI can give you back your time</h2>
+      <p>I specialize in helping small law firms become AI-enabled. The focus: non-billable hours. Generating leads, intaking clients, responding. These are areas where AI can make an immediate dent without touching the parts of your work that require your professional judgment.</p>
+      <p>Beyond that, AI can meaningfully reduce the time you spend on discovery files, case file precedents, and document review and prep — the hours that eat into billable time without adding much of it back.</p>
+      <p>I come in and help you understand:</p>
       <ul>
-        <li>Cut down on time manually reviewing confidential client documents — identify key issues of a case and surface the applicable documents</li>
-        <li>Query external case law to find relevant precedent</li>
-        <li>Automate the client intake process and prepare response documents</li>
+        <li>What AI can and cannot do — and where the real risks are for a firm like yours</li>
+        <li>The best options for your practice given your current tech stack and budget</li>
+        <li>The reputational risks specific to your practice, and what a defensible AI governance policy actually looks like</li>
       </ul>
-      <p>Added to all this, a law firm must be sure that any AI system it uses doesn't break solicitor-client privilege and does not surface confidential information in an LLM system that would compromise the firm's reputation.</p>
-      <p>Reputational risks are real. So are the time-saving benefits. The question is which tools are worth your time, how to use them without creating professional liability, and how to get your team actually using them.</p>
     </section>
 
-    <section class="proposition wrap" id="proposition">
-      <h2>My Proposition</h2>
-      <p>That's the problem I solve. I come in, assess your practice, identify the highest-value opportunities — research, drafting, intake, document review — and help you build workflows your team will actually keep using.</p>
-      <p>And I produce the AI governance documentation your firm needs when clients, regulators, or your law society come asking — built around solicitor-client privilege from the ground up.</p>
-    </section>
-
-    <section class="about wrap" id="about">
+    <section class="about wrap fade-in" id="about">
       <div class="photo-wrap">
         <img class="photo" src="photo.png" alt="Jason Yung">
       </div>
       <div>
         <h2>About Me</h2>
-        <p>I worked in AI when governance wasn't optional. As AI Governance Lead at Canada's Defence AI Centre, I built frameworks for deploying AI in environments where the stakes for getting it wrong were high. I understand how to implement AI responsibly in regulated settings &mdash; not just how to demo the latest tool.</p>
-        <p>Hands-on with the technology, fluent in the governance questions your law society is already asking &mdash; that's what I bring to a law firm AI problem.</p>
+        <ul>
+          <li>Early career as a Canadian diplomat, working on international security and terrorism. Served in Afghanistan as a diplomat. I understand high-stakes situations and the mindset needed to face them.</li>
+          <li>Mid-career pivot into technology. Did a masters in technology at New York University. Then, returned to government and decided to specialize in AI. My last role was as AI governance lead at the Dept of National Defence, where I put into place foundational AI governance architecture in the department.</li>
+          <li>Left government to embark on a new phase. Started a consulting business in AI enablement with the insights I gained from my time in government — that AI enablement must be rooted in the specificity of the organization and the people, than the tech itself.</li>
+        </ul>
       </div>
     </section>
 
-    <section class="offerings wrap" id="services">
+    <section class="offerings wrap fade-in" id="services">
       <p class="label">The Process</p>
       <ol class="process-list">
         <li><div>
           <h3>Consultation Call</h3>
-          <p>A focused conversation about your practice — your size, practice areas, current workflow pain points, and where AI could realistically save your team time. No pitch, no obligation.</p>
+          <p>A focused conversation about your practice — your business goals, your current pain points, and where AI could help you save time.</p>
+          <p>No pitch. No obligation.</p>
         </div></li>
         <li><div>
           <h3>AI Tooling Assessment</h3>
-          <p>A one-shot engagement that audits your current workflows and maps them against the AI tools that are actually worth using in a legal context — research, drafting, intake, document review. You get a clear prioritized list of what to adopt and how, with professional responsibility considerations built in.</p>
+          <p>A one-time engagement that maps your requirements and existing workflows against the AI options available to you: buy, configure, or build.</p>
+          <p>You'll receive costed recommendations for what to adopt, the pros and cons of each option, and the associated risks and safeguards.</p>
+          <p>I start with the simplest and least expensive course of action. If something you already pay for can solve the problem, I'll tell you.</p>
         </div></li>
         <li><div>
-          <h3>Expanded Engagement</h3>
-          <p>Hands-on implementation, staff training, and ongoing advisory — building the workflows and habits that turn AI from a curiosity into a competitive advantage for your firm.</p>
+          <h3>Implementation</h3>
+          <p>The assessment gives you a practical roadmap that you can choose to implement yourself or with another provider.</p>
+          <p>If you'd like me to implement it, I can work hands-on with your firm to configure and build AI tools, integrate them into your workflows, train your team, and develop audit-ready AI governance documentation — so your firm can demonstrate not only how it uses AI, but the policies, safeguards, and accountability you have put around that use.</p>
+          <p>The goal is not simply to give your firm new technology. It's to build the workflows, safeguards, and habits that allow AI to become a lasting advantage for your practice.</p>
         </div></li>
       </ol>
     </section>
 
-    <section class="clients wrap" id="clients">
-      <p class="label">Clients</p>
-      <p>Currently engaged with a Toronto law firm on AI workflow implementation.</p>
+    <section class="clients wrap fade-in" id="clients">
+      <p class="label">Current Work</p>
+      <p>I'm currently working with a Toronto law firm to identify and implement AI workflows for its practice, including the secure use of the firm's existing knowledge and case files.</p>
+      <p>The engagement spans AI tooling assessment, implementation, and governance — putting the approach described above into practice in a working law firm.</p>
     </section>
 
-    <section class="contact wrap" id="contact">
+    <section class="contact wrap fade-in" id="contact">
       <p class="label">Contact</p>
-      <p>If you're a managing partner, practice group lead, or operations director thinking about AI — or already experimenting with it and not sure what's worth keeping — send a short note and I'll get back to you within one business day.</p>
-      <p><a class="email" href="mailto:jason.yung@gmail.com">jason.yung@gmail.com</a></p>
+      <p>If you're a sole practitioner or small firm principal thinking about AI — or already experimenting with it and not sure what's worth keeping — book a free 30 min consultation!</p>
+      <p><a class="cta-link" href="https://calendar.app.google/94zp1bSj8kp4Uja66" target="_blank" rel="noopener">Book a free 30-minute consultation &rarr;</a></p>
+      <p>Or if you'd prefer, reach out by email: <a class="email" href="mailto:jason@jasonyung.com">jason@jasonyung.com</a></p>
     </section>
 
   </main>
@@ -393,6 +520,40 @@
   <footer class="wrap">
     &copy; 2026 Jason Yung Consulting
   </footer>
+
+  <script>
+    function splitChars(el) {
+      const skip = new Set(['SCRIPT', 'STYLE', 'IMG', 'BR', 'HR', 'A']);
+      [...el.childNodes].forEach(node => {
+        if (node.nodeType === 3 && node.textContent.trim()) {
+          const frag = document.createDocumentFragment();
+          [...node.textContent].forEach(ch => {
+            if (/\s/.test(ch)) {
+              frag.appendChild(document.createTextNode(ch));
+            } else {
+              const s = document.createElement('span');
+              s.className = 'char';
+              s.textContent = ch;
+              s.style.setProperty('--d', (Math.random() * 0.18).toFixed(3) + 's');
+              frag.appendChild(s);
+            }
+          });
+          node.replaceWith(frag);
+        } else if (node.nodeType === 1 && !skip.has(node.tagName)) {
+          splitChars(node);
+        }
+      });
+    }
+
+    document.querySelectorAll('.fade-in').forEach(el => splitChars(el));
+    document.querySelectorAll('.fade-in a').forEach(a => splitChars(a));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
+    }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
