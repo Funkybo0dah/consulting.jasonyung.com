@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jason Yung — AI Enablement for Law Firms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <meta name="description" content="I help law firms adopt AI practically and responsibly — saving time on research, drafting, and intake without compromising professional standards." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 18px;
+      color: #1a1a18;
+      background: #f5f2eb;
+      line-height: 1.75;
+    }
+
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+
+    a { color: inherit; }
+
+    /* ── Section label ── */
+    .label {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 0.78em;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: #8B6914;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #d9d4c8;
+    }
+
+    /* ── Header ── */
+    header {
+      background: #F0C000;
+      padding: 64px 0 40px;
+      position: relative;
+      text-align: center;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.85;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 200px 200px;
+    }
+
+    header.wrap {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    header h1 .initial {
+      font-size: 1.1em;
+      line-height: 0;
+      vertical-align: baseline;
+    }
+
+    header h1 {
+      text-shadow:
+        -2px -2px 0px rgba(255, 245, 140, 1),
+        3px 3px 5px rgba(60, 40, 0, 0.55);
+      letter-spacing: -0.01em;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 4.2em;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #0A1628;
+      margin-bottom: 10px;
+    }
+
+    header .tagline {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #0A1628;
+      font-size: 0.95em;
+      margin-bottom: 24px;
+      max-width: 580px;
+      opacity: 0.7;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    nav a {
+      font-size: 0.85em;
+      color: #7A7670;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+
+    nav a:hover { color: #F0C000; }
+
+    /* ── Problem / Proposition ── */
+    .problem, .proposition {
+      padding-top: 48px;
+      padding-bottom: 0;
+    }
+
+    .problem h2, .proposition h2 {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 0.78em;
+      font-weight: 600;
+      color: #8B6914;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .problem h2::after, .proposition h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #d9d4c8;
+    }
+
+    .section-tagline {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.35em;
+      font-style: italic;
+      color: #3a3630;
+      margin-bottom: 20px !important;
+      line-height: 1.35;
+    }
+
+    .problem p, .proposition p {
+      color: #4a4640;
+      font-size: 0.95em;
+      margin-bottom: 14px;
+    }
+
+    .problem p:last-child, .proposition p:last-child { margin-bottom: 0; }
+
+    .problem ul, .proposition ul {
+      color: #4a4640;
+      font-size: 0.95em;
+      margin: 0 0 14px 20px;
+      line-height: 1.8;
+    }
+
+    .problem ul li, .proposition ul li { margin-bottom: 8px; }
+
+    /* ── About ── */
+    .about {
+      padding-top: 48px;
+      padding-bottom: 64px;
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .photo-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #e0dbd0;
+    }
+
+    .photo {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 15%;
+      transform: scale(1.5);
+      transform-origin: 50% 10%;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75em;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #aaa;
+      text-align: center;
+      background: #111E30;
+    }
+
+    .about h2 {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 0.78em;
+      font-weight: 600;
+      color: #8B6914;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .about h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #d9d4c8;
+    }
+
+    .about p {
+      color: #4a4640;
+      font-size: 0.95em;
+      margin-bottom: 14px;
+    }
+
+    .about p:last-child { margin-bottom: 0; }
+
+    .about ul {
+      color: #4a4640;
+      font-size: 0.95em;
+      margin: 0 0 0 20px;
+      line-height: 1.8;
+    }
+
+    .about ul li { margin-bottom: 14px; }
+    .about ul li:last-child { margin-bottom: 0; }
+
+    /* ── Offerings ── */
+    .offerings { padding-bottom: 64px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid #1E2E45;
+      border-top: 2px solid #F0C000;
+      padding: 28px 24px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .card:hover {
+      background: #111E30;
+    }
+
+    .card .card-label {
+      font-size: 0.72em;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #F0C000;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 1.05em;
+      font-weight: 600;
+      color: #E8E4DC;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.88em;
+      color: #8A8480;
+      line-height: 1.6;
+    }
+
+    /* ── Process list ── */
+    .process-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      counter-reset: process;
+    }
+
+    /* vertical connector line */
+    .process-list::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 44px;
+      bottom: 44px;
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(139,105,20,0.5), rgba(139,105,20,0.06));
+    }
+
+    .process-list li {
+      padding: 32px 0 32px 52px;
+      position: relative;
+      counter-increment: process;
+      overflow: hidden;
+    }
+
+    /* gold dot on the timeline */
+    .process-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 40px;
+      width: 11px;
+      height: 11px;
+      background: #8B6914;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(139,105,20,0.12);
+    }
+
+    /* large ghosted step number */
+    .process-list li::after {
+      content: counter(process, decimal-leading-zero);
+      position: absolute;
+      right: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 7em;
+      font-weight: 700;
+      color: rgba(139,105,20,0.07);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .process-list h3 {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 1em;
+      font-weight: 600;
+      color: #8B6914;
+      margin-bottom: 6px;
+    }
+
+    .process-list p {
+      font-size: 0.88em;
+      color: #6b6558;
+      line-height: 1.7;
+      margin: 0 0 10px;
+    }
+
+    .process-list p:last-child { margin-bottom: 0; }
+
+    /* ── Scroll dissolve ── */
+    header.fade-in {
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    header.fade-in.visible {
+      opacity: 1;
+    }
+
+    .fade-in .char {
+      opacity: 0;
+      transition: opacity 0.22s ease var(--d, 0s);
+    }
+
+    .fade-in.visible .char {
+      opacity: 1;
+    }
+
+    .fade-in img {
+      opacity: 0;
+      transition: opacity 0.9s ease 0.1s;
+    }
+
+    .fade-in.visible img {
+      opacity: 1;
+    }
+
+    /* ── Testimonials ── */
+    .testimonials { padding-bottom: 64px; }
+
+    figure {
+      border-left: 2px solid #F0C000;
+      padding-left: 20px;
+      margin-bottom: 28px;
+    }
+
+    figure:last-child { margin-bottom: 0; }
+
+    blockquote {
+      font-size: 1em;
+      color: #C8C4BC;
+      margin-bottom: 8px;
+      font-style: italic;
+    }
+
+    figcaption {
+      font-size: 0.82em;
+      color: #7A7670;
+    }
+
+    /* ── Clients ── */
+    .clients {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+
+    .clients p:not(.label) {
+      color: #4a4640;
+      font-size: 0.95em;
+    }
+
+    /* ── Contact ── */
+    .contact { padding-bottom: 40px; }
+
+    .contact p:not(.label) {
+      color: #4a4640;
+      font-size: 0.95em;
+      margin-bottom: 12px;
+    }
+
+    .contact a.cta-link {
+      display: inline-block;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1a1a18;
+      background: #F0C000;
+      padding: 12px 24px;
+      font-weight: 600;
+      font-size: 0.88em;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .contact a.cta-link:hover { opacity: 0.85; }
+
+    .contact a.email {
+      color: #8B6914;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(139,105,20,0.3);
+      transition: border-color 0.15s;
+    }
+
+    .contact a.email:hover { border-color: #8B6914; }
+
+    footer {
+      border-top: 1px solid #d9d4c8;
+      padding: 24px 0 64px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 0.82em;
+      color: #9a9488;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 640px) {
+      header { padding-top: 48px; }
+      header h1 { font-size: 1.65em; }
+      .problem, .proposition { padding-top: 32px; }
+      .about { grid-template-columns: 1fr; gap: 24px; padding-top: 32px; }
+      .photo-wrap { width: 240px; justify-self: center; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="wrap fade-in">
+    <h1><span class="initial">J</span>ason <span class="initial">Y</span>ung <span class="initial">C</span>onsulting</h1>
+    <p class="tagline">AI enablement for Ontario's small law firms.</p>
+  </header>
+
+  <main>
+
+    <section class="problem wrap fade-in">
+      <h2>The Problem</h2>
+      <p>Small law firms are a major part of Ontario's legal market. Sole practitioners account for roughly 18% of Ontario lawyers, while 41% of lawyers work in firms with fewer than 10 lawyers. <em>(Source: LSO Lawyer Annual Report 2024)</em></p>
+      <p>These firms face the same pressure from AI as Bay Street. Clients expect faster turnaround, and opposing counsel is already using AI to prepare.</p>
+      <p>Legal AI vendors like Harvey are built for large firms and big budgets. Small firms are largely on their own without an in-house IT department to explain, in plain terms, what their AI options actually are.</p>
+      <p>Worse, under the pressure of the time crunch, a lawyer might even take the extraordinary step of entering case data into an LLM without knowing what happens to that data. Or they may use an LLM to generate text without knowing for sure if the output contains hallucinations.</p>
+      <p>The reputational risks of using AI are real, as are the time-saving benefits.</p>
+      <p>The question is: which tools are worth the time and cost? And how to use these in a way that is always on the right side of professional liability?</p>
+    </section>
+
+    <section class="proposition wrap fade-in" id="proposition">
+      <h2>My Proposition</h2>
+      <p class="section-tagline">AI can give you back your time</p>
+      <p>I specialize in helping small law firms become AI-enabled.</p>
+      <p>Done right, adopting AI helps a small firm gain their time back. These are the hours spent on generating leads for new clients, hours spent doing client intake and drafting responses. Every non-billable hour saved is time you get back.</p>
+      <p>AI can also help reduce time spent on manual tasks like identifying key issues across hundreds of discovery case files, and reviewing a corpus of internal case files to identify precedents. AI can help you reduce review time and give you more time for strategic thinking.</p>
+      <p>I can help you to understand:</p>
+      <ul>
+        <li>What AI can (and cannot do) for you and your workflow</li>
+        <li>What your best AI options are given your current tech stack</li>
+        <li>What the different reputational risks are for different AI options, and recommendations to guard against those risks</li>
+      </ul>
+    </section>
+
+    <section class="about wrap fade-in" id="about">
+      <div class="photo-wrap">
+        <img class="photo" src="photo.png" alt="Jason Yung">
+      </div>
+      <div>
+        <h2>About Me</h2>
+        <ul>
+          <li>Early career as a Canadian diplomat, working on international security and terrorism. Served in Afghanistan as a diplomat. I understand high-stakes situations and the mindset needed to face them.</li>
+          <li>Mid-career pivot into technology. Did a masters in technology at New York University. Returned to government and specialized in AI. My last role was as AI governance lead at the Department of National Defence, where I put into place foundational AI governance architecture in the department.</li>
+          <li>Left government to start a consulting business in AI enablement with the insights I gained from my time in government — that AI enablement must be rooted in the unique needs of organization and the people, rather than the tech itself.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="offerings wrap fade-in" id="services">
+      <p class="label">The Process</p>
+      <ol class="process-list">
+        <li><div>
+          <h3>Consultation Call</h3>
+          <p>A focused conversation about your practice — your business goals, your current pain points, and where AI could help you save time.</p>
+          <p>No pitch. No obligation.</p>
+        </div></li>
+        <li><div>
+          <h3>AI Tooling Assessment</h3>
+          <p>A one-time engagement that maps your requirements and existing workflows against the AI options available to you: buy, configure, or build.</p>
+          <p>You'll receive costed recommendations for what to adopt, the pros and cons of each option, and the associated risks and safeguards.</p>
+          <p>I start with the simplest and least expensive course of action. If something you already pay for can solve the problem, I'll tell you.</p>
+        </div></li>
+        <li><div>
+          <h3>Implementation</h3>
+          <p>The assessment gives you a practical roadmap that you can choose to implement yourself or with another provider.</p>
+          <p>If you'd like me to implement it, I can work hands-on with your firm to configure and build AI tools, integrate them into your workflows, train your team, and develop audit-ready AI governance documentation — so your firm can demonstrate not only how it uses AI, but the policies, safeguards, and accountability you have put around that use.</p>
+          <p>The goal is not simply to give your firm new technology. It's to build the workflows, safeguards, and habits that allow AI to become a lasting advantage for your practice.</p>
+        </div></li>
+      </ol>
+    </section>
+
+    <section class="clients wrap fade-in" id="clients">
+      <p class="label">Current Work</p>
+      <p>I'm currently working with a Toronto law firm to identify and implement AI workflows for its practice, including the secure use of the firm's existing knowledge and case files.</p>
+      <p>The engagement spans AI tooling assessment, implementation, and governance — putting the approach described above into practice in a working law firm.</p>
+    </section>
+
+    <section class="contact wrap fade-in" id="contact">
+      <p class="label">Contact</p>
+      <p>If you're a sole practitioner or small firm principal thinking about AI — or already experimenting with it and not sure what's worth keeping — book a free 30 min consultation!</p>
+      <p><a class="cta-link" href="https://calendar.app.google/94zp1bSj8kp4Uja66" target="_blank" rel="noopener">Book a free 30-minute consultation &rarr;</a></p>
+      <p>Or if you'd prefer, reach out by email: <a class="email" href="mailto:jason@jasonyung.com">jason@jasonyung.com</a></p>
+    </section>
+
+  </main>
+
+  <footer class="wrap">
+    &copy; 2026 Jason Yung Consulting
+  </footer>
+
+  <script>
+    function splitChars(el) {
+      const skip = new Set(['SCRIPT', 'STYLE', 'IMG', 'BR', 'HR', 'A']);
+      [...el.childNodes].forEach(node => {
+        if (node.nodeType === 3 && node.textContent.trim()) {
+          const frag = document.createDocumentFragment();
+          [...node.textContent].forEach(ch => {
+            if (/\s/.test(ch)) {
+              frag.appendChild(document.createTextNode(ch));
+            } else {
+              const s = document.createElement('span');
+              s.className = 'char';
+              s.textContent = ch;
+              s.style.setProperty('--d', (Math.random() * 0.18).toFixed(3) + 's');
+              frag.appendChild(s);
+            }
+          });
+          node.replaceWith(frag);
+        } else if (node.nodeType === 1 && !skip.has(node.tagName)) {
+          splitChars(node);
+        }
+      });
+    }
+
+    document.querySelectorAll('.fade-in').forEach(el => splitChars(el));
+    document.querySelectorAll('.fade-in a').forEach(a => splitChars(a));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
+    }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
