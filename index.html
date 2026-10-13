@@ -246,6 +246,23 @@
       padding: 120px 0;
     }
 
+    .opp-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .opp-illustration img {
+      width: 100%;
+      max-width: 520px;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .opp-two-col { grid-template-columns: 1fr; }
+      .opp-illustration { order: -1; }
+      .opp-illustration img { max-width: 360px; margin: 0 auto; }
+    }
+
     .opp-headline {
       font-family: system-ui, -apple-system, sans-serif;
       font-size: clamp(1.8em, 3.5vw, 2.8em);
@@ -751,13 +768,20 @@
   <!-- 02 / OPPORTUNITY -->
   <section id="opportunity">
     <div class="wrap">
-      <p class="label label-gold reveal">The Opportunity</p>
-      <h2 class="opp-headline reveal reveal-delay-1">Big-firm AI capabilities. Small-firm budgets.</h2>
-      <p class="opp-sub reveal reveal-delay-2">Large law firms have the budgets, technology, and dedicated teams to take advantage of AI. Smaller firms are often left to figure it out on their own.</p>
-      <p class="opp-sub reveal reveal-delay-2">It doesn't have to be that way.</p>
-      <p class="opp-sub reveal reveal-delay-3">You don't need expensive Legal AI enterprise software to benefit from powerful AI. Many of the same capabilities are already within reach with affordable tools your firm may already have.</p>
-      <p class="opp-sub reveal reveal-delay-3">I help small law firms put those tools to work — configuring, integrating, and tailoring AI to how your practice actually operates.</p>
-      <p class="opp-sub reveal" style="font-style: italic; margin-bottom: 64px;">AI should be tailored to your practice. Not the other way around.</p>
+      <div class="opp-two-col">
+        <div class="opp-text">
+          <p class="label label-gold reveal">The Opportunity</p>
+          <h2 class="opp-headline reveal reveal-delay-1">Big-firm AI capabilities. Small-firm budgets.</h2>
+          <p class="opp-sub reveal reveal-delay-2">Large law firms have the budgets, technology, and dedicated teams to take advantage of AI. Smaller firms are often left to figure it out on their own.</p>
+          <p class="opp-sub reveal reveal-delay-2">It doesn't have to be that way.</p>
+          <p class="opp-sub reveal reveal-delay-3">You don't need expensive Legal AI enterprise software to benefit from powerful AI. Many of the same capabilities are already within reach with affordable tools your firm may already have.</p>
+          <p class="opp-sub reveal reveal-delay-3">I help small law firms put those tools to work — configuring, integrating, and tailoring AI to how your practice actually operates.</p>
+          <p class="opp-sub reveal" style="font-style: italic; margin-bottom: 0;">AI should be tailored to your practice. Not the other way around.</p>
+        </div>
+        <div class="opp-illustration reveal reveal-delay-2">
+          <img src="david-goliath.webp" alt="David and Goliath — small firm, big capabilities">
+        </div>
+      </div>
     </div>
   </section>
 
